@@ -1,4 +1,4 @@
-package week2_helloworld;
+package week2.helloworld;
 
 public class HelloWorld {
 
