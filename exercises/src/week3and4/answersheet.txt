@@ -18,7 +18,7 @@ DESIGN PATTERNS EXERCISES
 			}
 		}
 	
-	(b) Interfaces permit multiple inheritance, abstract classes only one (extends)
+	(b) Interfaces permit multiple inheritance (implements), abstract classes only one (extends)
 		
 		public class A extends B, implements C, D {...}
 		
@@ -38,7 +38,7 @@ DESIGN PATTERNS EXERCISES
 
 4.	It allows one to implement an interface without having to implement all the methods.
 
-5. One can use a private constructor as in the following example using eager initialization.
+5.  One can use a private constructor as in the following example using eager initialization.
 
 	public class SingletonClass {
 
