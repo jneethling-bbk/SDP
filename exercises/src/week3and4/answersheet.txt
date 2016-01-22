@@ -1,0 +1,72 @@
+DESIGN PATTERNS EXERCISES
+
+1. 
+	(a) Interfaces allow for default methods which can be used when directly instantiated (for 
+		example using an anonymous class) while	abstract classes must be extended by a sub-class
+		before any of its methods can be used.
+		
+		public interface Greeting {
+			default String sayHello() {
+				return "Hello";
+			}
+		}
+		public class Greet {
+			public static void main (String[] args) {
+				Greeting myGreeting = new Greeting() {};
+				System.out.print(myGreeting.sayHello());
+		
+			}
+		}
+	
+	(b) Interfaces permit multiple inheritance, abstract classes only one (extends)
+		
+		public class A extends B, implements C, D {...}
+		
+	(c) Abstract classes may hold state information, interfaces may not.
+		
+		public abstract class A {
+			public static final int ANSWER = 42;
+		 	...
+		}
+		
+2.
+	(a) false, marker interfaces such as Serializable have no methods
+	(b) false, interfaces cannot have any member fields
+	(c) false, interfaces cannot contain constructors
+	
+3.	java.util.Observable
+
+4.	It allows one to implement an interface without having to implement all the methods.
+
+5. One can use a private constructor as in the following example using eager initialization.
+
+	public class SingletonClass {
+
+    	private static SingletonClass singletonInstance = new SingletonClass();
+
+    	private SingletonClass() {}
+
+    	public static SingletonClass getSingletonInstance() {
+        	return singletonInstance;
+    	}
+	}
+  	
+ 6.	Lazy-initialization is used for faster start-ups as it provides the object just in time.
+ 
+ 	public class SingleTonClass {
+   		private static SingleTonClass obj=null;
+   		
+   		private SingleTonClass() {}
+   		
+   		public static SingleTonClass objectCreationMethod() {
+			if(obj==null){
+	    	obj= new SingleTonClass();
+		}
+        return obj;
+  	   
+  	   public static void main(String args[]){
+			SingleTonClass myobject= SingleTonClass.objectCreationMethod();
+		}
+  	}
+  
+ 7.	
