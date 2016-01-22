@@ -1,5 +1,7 @@
 DESIGN PATTERNS EXERCISES
 
+Short form questions
+
 1. 
 	(a) Interfaces allow for default methods which can be used when directly instantiated (for 
 		example using an anonymous class) while	abstract classes must be extended by a sub-class
@@ -70,3 +72,10 @@ DESIGN PATTERNS EXERCISES
   	}
   
  7.	
+ 
+ 
+ Long form question
+ 
+ 1. See "factorymethod" sub-package
+ 
+ 2. 
