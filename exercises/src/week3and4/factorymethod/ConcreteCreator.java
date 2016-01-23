@@ -4,14 +4,8 @@ public class ConcreteCreator implements Creator {
 	private static ConcreteCreator instance = null;
 	private Product product = null;
 	
-	private ConcreteCreator() {
-		try {
-			product = (Product) Class.forName("week3and4.factorymethod.ConcreteProduct").newInstance();
-		} catch (Exception ex) {
-			System.err.println("Failed to create factory method");
-			ex.printStackTrace();
-		}	
-	}
+	private ConcreteCreator() {}
+	
 	static {
 		instance = new ConcreteCreator();
 	}
@@ -19,7 +13,8 @@ public class ConcreteCreator implements Creator {
 		return instance;
 	}
 	@Override
-	public Product getProduct() {
+	public Product getProduct(String productSubType) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		product = (Product) Class.forName(productSubType).newInstance();
 		return product;
 	}
 
