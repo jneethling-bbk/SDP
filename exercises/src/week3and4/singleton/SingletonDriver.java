@@ -11,6 +11,10 @@ public class SingletonDriver {
 		EagerStaticBlockSingleton d = EagerStaticBlockSingleton.getInstance();
 		System.out.println("The references to EagerStaticBlockSingleton point to the same object in memory: " + c.equals(d));
 
+		LazySingleton e = LazySingleton.getInstance();
+		LazySingleton f = LazySingleton.getInstance();
+		System.out.println("The references to LazySingleton point to the same object in memory: " + e.equals(f));
+
 	}
 
 }
