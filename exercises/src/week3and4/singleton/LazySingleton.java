@@ -3,10 +3,10 @@ package week3and4.singleton;
 public class LazySingleton {
 	private static LazySingleton instance;
     
-    private LazySingleton(){}
+    private LazySingleton() {}
      
-    public static LazySingleton getInstance(){
-        if(instance == null){
+    public static LazySingleton getInstance() {
+        if(instance == null) {
             instance = new LazySingleton();
         }
         return instance;

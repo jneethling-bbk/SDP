@@ -78,4 +78,13 @@ Short form questions
  
  1. See "factorymethod" folder
  
- 2. 
+ 2.	(a) See "singleton" folder
+ 
+ 	(b) Each time a thread is trying to enter the synchronized method, the JVM has to check if another
+		thread is already executing the method. Making the entire method syncronized causes the bottleneck
+		to occur even if an instance already exists (which will prevent the creation of another instance 
+		being the only piece of conditional logic one is trying to protect in this case).
+
+	(c) OK
+	
+	(d) See "singleton" folder
