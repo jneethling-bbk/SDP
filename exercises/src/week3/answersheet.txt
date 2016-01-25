@@ -88,3 +88,7 @@ Short form questions
 	(c) OK
 	
 	(d) See "singleton" folder
+	
+3. See "adapter" folder"
+
+4. See "observer" folder
