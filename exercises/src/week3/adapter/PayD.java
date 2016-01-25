@@ -1,4 +1,4 @@
-package week3and4.adapter;
+package week3.adapter;
 
 public interface PayD {
     String getCustCardNo();

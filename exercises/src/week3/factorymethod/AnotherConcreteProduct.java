@@ -1,4 +1,4 @@
-package week3and4.factorymethod;
+package week3.factorymethod;
 
 public class AnotherConcreteProduct implements Product {
 	

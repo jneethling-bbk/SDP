@@ -1,4 +1,4 @@
-package week3and4.singleton;
+package week3.singleton;
 
 public class DoubleCheckedSingleton {
 	private static DoubleCheckedSingleton instance;
