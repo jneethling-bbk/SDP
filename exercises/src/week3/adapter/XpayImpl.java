@@ -1,6 +1,9 @@
 package week3.adapter;
 
+// Using boilerplate until I can get Lombok to work in my Eclipse!
+
 public class XpayImpl implements Xpay {
+	
 	private String creditCardNo;
     private String customerName;
     private String cardExpMonth;
@@ -8,9 +11,16 @@ public class XpayImpl implements Xpay {
     private Short cardCVVNo;
     private Double amount;
     
-	public XpayImpl() {
+    public XpayImpl(String creditCardNo, String customerName, String cardExpMonth, String cardExpYear, Short cardCVVNo,
+			Double amount) {
+		this.creditCardNo = creditCardNo;
+		this.customerName = customerName;
+		this.cardExpMonth = cardExpMonth;
+		this.cardExpYear = cardExpYear;
+		this.cardCVVNo = cardCVVNo;
+		this.amount = amount;
 	}
-    @Override
+	@Override
 	public String getCreditCardNo() {
 		return creditCardNo;
 	}
@@ -57,5 +67,11 @@ public class XpayImpl implements Xpay {
 	@Override
 	public void setAmount(Double amount) {
 		this.amount = amount;
+	}
+	@Override
+	public String toString() {
+		return "XpayImpl [creditCardNo=" + creditCardNo + ", customerName=" + customerName + ", cardExpMonth="
+				+ cardExpMonth + ", cardExpYear=" + cardExpYear + ", cardCVVNo=" + cardCVVNo + ", amount=" + amount
+				+ "]";
 	}
 }
