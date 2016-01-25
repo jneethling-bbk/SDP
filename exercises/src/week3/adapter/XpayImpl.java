@@ -3,6 +3,8 @@ package week3.adapter;
 // Using boilerplate until I can get Lombok to work in my Eclipse!
 
 public class XpayImpl implements Xpay {
+	// plug in the new adapter
+	private XpayToPayDAdapter adap;
 	
 	private String creditCardNo;
     private String customerName;
@@ -19,6 +21,9 @@ public class XpayImpl implements Xpay {
 		this.cardExpYear = cardExpYear;
 		this.cardCVVNo = cardCVVNo;
 		this.amount = amount;
+		
+		// Use the new adapter
+		adap = new XpayToPayDAdapter(this);
 	}
 	@Override
 	public String getCreditCardNo() {
@@ -70,8 +75,10 @@ public class XpayImpl implements Xpay {
 	}
 	@Override
 	public String toString() {
-		return "XpayImpl [creditCardNo=" + creditCardNo + ", customerName=" + customerName + ", cardExpMonth="
-				+ cardExpMonth + ", cardExpYear=" + cardExpYear + ", cardCVVNo=" + cardCVVNo + ", amount=" + amount
-				+ "]";
+		// Replace with new toString
+		//return "XpayImpl [creditCardNo=" + creditCardNo + ", customerName=" + customerName + ", cardExpMonth="
+				//+ cardExpMonth + ", cardExpYear=" + cardExpYear + ", cardCVVNo=" + cardCVVNo + ", amount=" + amount
+				//+ "]";
+		return adap.getPayDString();
 	}
 }
