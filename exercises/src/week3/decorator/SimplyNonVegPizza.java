@@ -7,7 +7,7 @@ public class SimplyNonVegPizza implements Pizza {
 	}
 	@Override
 	public double getPrice() {
-	return 3.50;
+	return 3.5;
 	}
 
 }
