@@ -71,7 +71,51 @@ Short form questions
 		}
   	}
   
- 7.	
+ 7.	import java.util.Observable;
+
+	public class ObservableValue extends Observable {
+	   private int n = 0;
+	   
+	   public ObservableValue(int n) {
+	      this.n = n;
+	   }
+	   
+	   public void setValue(int n) {
+	      this.n = n;
+	      setChanged();
+	      notifyObservers();
+	   }
+	   
+	   public int getValue() {
+	      return n;
+	   }
+	}
+	
+	import java.util.Observer;
+	import java.util.Observable;
+	
+	public class TextObserver implements Observer {
+	   private ObservableValue ov = null;
+	   
+	   
+	   public TextObserver(ObservableValue ov) {
+	      this.ov = ov;
+	   }
+	   
+	   public void update(Observable obs, Object obj) {
+	      if (obs == ov) {
+	         System.out.println(ov.getValue());
+	      }
+	   }
+	}
+	
+8. True
+
+9. clone & toString
+
+10. When a method creates an object and returns a superclass object
+
+11. 
  
  
  Long form question
