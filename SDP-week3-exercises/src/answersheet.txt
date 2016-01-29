@@ -1,0 +1,140 @@
+DESIGN PATTERNS EXERCISES
+
+Short form questions
+
+1. 
+	(a) Interfaces allow for default methods which can be used when directly instantiated (for 
+		example using an anonymous class) while	abstract classes must be extended by a sub-class
+		before any of its methods can be used.
+		
+		public interface Greeting {
+			default String sayHello() {
+				return "Hello";
+			}
+		}
+		public class Greet {
+			public static void main (String[] args) {
+				Greeting myGreeting = new Greeting() {};
+				System.out.print(myGreeting.sayHello());
+		
+			}
+		}
+	
+	(b) Interfaces permit multiple inheritance (implements), abstract classes only one (extends)
+		
+		public class A extends B, implements C, D {...}
+		
+	(c) Abstract classes may hold state information, interfaces may not.
+		
+		public abstract class A {
+			public static final int ANSWER = 42;
+		 	...
+		}
+		
+2.
+	(a) false, marker interfaces such as Serializable have no methods
+	(b) false, interfaces cannot have any member fields
+	(c) false, interfaces cannot contain constructors
+	
+3.	java.util.Observable
+
+4.	It allows one to implement an interface without having to implement all the methods.
+
+5.  One can use a private constructor as in the following example using eager initialization.
+
+	public class SingletonClass {
+
+    	private static SingletonClass singletonInstance = new SingletonClass();
+
+    	private SingletonClass() {}
+
+    	public static SingletonClass getSingletonInstance() {
+        	return singletonInstance;
+    	}
+	}
+  	
+ 6.	Lazy initialization is used for faster start-ups as it provides the object only once it is needed.
+ 
+ 	public class SingleTonClass {
+   		private static SingleTonClass obj=null;
+   		
+   		private SingleTonClass() {}
+   		
+   		public static SingleTonClass objectCreationMethod() {
+			if(obj==null){
+	    	obj= new SingleTonClass();
+		}
+        return obj;
+  	   
+  	   public static void main(String args[]){
+			SingleTonClass myobject= SingleTonClass.objectCreationMethod();
+		}
+  	}
+  
+ 7.	import java.util.Observable;
+
+	public class ObservableValue extends Observable {
+	   private int n = 0;
+	   
+	   public ObservableValue(int n) {
+	      this.n = n;
+	   }
+	   
+	   public void setValue(int n) {
+	      this.n = n;
+	      setChanged();
+	      notifyObservers();
+	   }
+	   
+	   public int getValue() {
+	      return n;
+	   }
+	}
+	
+	import java.util.Observer;
+	import java.util.Observable;
+	
+	public class TextObserver implements Observer {
+	   private ObservableValue ov = null;
+	   
+	   
+	   public TextObserver(ObservableValue ov) {
+	      this.ov = ov;
+	   }
+	   
+	   public void update(Observable obs, Object obj) {
+	      if (obs == ov) {
+	         System.out.println(ov.getValue());
+	      }
+	   }
+	}
+	
+8. True
+
+9. clone & toString
+
+10. When a method creates an object and returns a superclass object
+
+11. 
+ 
+ 
+ Long form question
+ 
+ 1. See "factorymethod" folder
+ 
+ 2.	(a) See "singleton" folder
+ 
+ 	(b) Each time a thread is trying to enter the synchronized method, the JVM has to check if another
+		thread is already executing the method. Making the entire method syncronized causes the bottleneck
+		to occur even if an instance already exists (which will prevent the creation of another instance 
+		being the only piece of conditional logic one is trying to protect in this case).
+
+	(c) OK
+	
+	(d) See "singleton" folder
+	
+3. See "adapter" folder
+
+4. See "observer" folder
+
+5. See "decorator" folder
