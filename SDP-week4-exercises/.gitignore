@@ -4,3 +4,4 @@
 *.worksheet
 *.settings
 *.class
+/.cache-main
