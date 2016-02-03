@@ -1,7 +1,5 @@
 package part1
 
-import part1.atomicScala.AtomicTest._
-
 class Cup {
   var percentFull = 0
   val max = 100
