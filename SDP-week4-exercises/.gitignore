@@ -5,3 +5,4 @@
 *.settings
 *.class
 /.cache-main
+/_AtomicTestErrors.txt
