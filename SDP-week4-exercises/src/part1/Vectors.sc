@@ -1,5 +1,7 @@
 package part1
 
+import atomicscala.AtomicTest._
+
 object Vectors {
   val sv = Vector("a", "b", "c")                  //> sv  : scala.collection.immutable.Vector[String] = Vector(a, b, c)
   val iv = Vector(1, 2, 3)                        //> iv  : scala.collection.immutable.Vector[Int] = Vector(1, 2, 3)
@@ -12,15 +14,16 @@ object Vectors {
   var sentence = ""                               //> sentence  : String = ""
   for (s <- wv) {
   	println(s)
-    sentence = sentence + " " + s
+    sentence = sentence + s + " "
   }                                               //> The
                                                   //| dog
                                                   //| visited
                                                   //| the
                                                   //| fire
                                                   //| station
-  println(sentence)                               //>  The dog visited the fire station
-
+  sentence.toString() is "The dog visited the fire station "
+                                                  //> The dog visited the fire station 
+  
 	iv.sum                                    //> res0: Int = 6
 	iv.min                                    //> res1: Int = 1
 	iv.max                                    //> res2: Int = 3
@@ -31,5 +34,11 @@ object Vectors {
 	dv.min                                    //> res4: Double = 1.0
 	dv.max                                    //> res5: Double = 1.2
 
+	val myVector1 = Vector(1, 2, 3, 4, 5, 6)  //> myVector1  : scala.collection.immutable.Vector[Int] = Vector(1, 2, 3, 4, 5, 
+                                                  //| 6)
+	val myVector2 = Vector(1, 2, 3, 4, 5, 6)  //> myVector2  : scala.collection.immutable.Vector[Int] = Vector(1, 2, 3, 4, 5, 
+                                                  //| 6)
+	
+	myVector1 is myVector2                    //> Vector(1, 2, 3, 4, 5, 6)
 
 }
