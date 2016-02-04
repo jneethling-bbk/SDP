@@ -16,5 +16,9 @@ object CupScript {
 	  
     cup.percentFull = 56
     cup.percentFull is 56
+  
+    cup.set(56)
+    cup.get() is 56
+
   }
 }

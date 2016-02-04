@@ -5,6 +5,14 @@ class Cup {
   val max = 100
   val min = 0
   
+  def set(percentFull:Int):Unit = {
+    this.percentFull = percentFull
+  }
+  
+  def get():Int = {
+    percentFull
+  }
+  
   def add(increase:Int):Int = {
     percentFull += increase
     if(percentFull > max) {
