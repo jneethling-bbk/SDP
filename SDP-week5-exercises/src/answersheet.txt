@@ -1,7 +1,0 @@
-1.	(a) The strategy DP is about using composition to allow behaviour to change from one sub-class to the next.
-		It is achieved by way of encapsulating different types of behaviour into classes that implement the
-		same interface.  This interface is then included as a member field of the superclass who's subclasses
-		needs the behaviour.
-		
-	(b) It can be used whenever there is a requirement to decouple the specifics of the required behaviour
-		from the classes that needs it. 
