@@ -1,6 +1,4 @@
 /bin/
 *.classpath
-*.project
 *.worksheet
-*.settings
 *.class
