@@ -1,11 +1,13 @@
 package week5.strategy;
 
 public class TextEditor {
-	private TextFormatter formatter;
+	public TextFormatter formatter;
 	
 	public TextEditor(TextFormatter formatter) {
 		this.formatter = formatter;
 	}
 	
-	public void publishText(String text) {}
+	public void publishText(String text) {
+		formatter.format(text);
+	}
 }
