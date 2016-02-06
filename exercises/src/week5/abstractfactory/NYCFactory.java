@@ -4,7 +4,9 @@ public class NYCFactory implements AbstractParserFactory {
 
 	@Override
 	public XMLParser getParserInstance(String parserType) {
-		return new XMLParser();
+		if (parserType.equals("NYCORDER")) {
+			return new NYCOrderParser();
+		} else {return null;}
 	}
 
 }

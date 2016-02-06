@@ -1,8 +1,19 @@
 package week5.abstractfactory;
 
-public class XMLParser {
+public abstract class XMLParser {
 
+	private String client;
+	private String parserType;
+	
 	public String parse() {
-		return null;
+		System.out.println(client + " Parsing " + parserType + " XML...");
+		return client + " " + parserType + " XML Message";
+	}
+	
+	public void setClient(String client)  {
+		this.client = client;
+	}
+	public void setParserType(String parserType)  {
+		this.parserType = parserType;
 	}
 }
