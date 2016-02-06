@@ -4,4 +4,12 @@
 		needs the behaviour.
 		
 	(b) It can be used whenever there is a requirement to decouple the specifics of the required behaviour
-		from the classes that needs it. 
+		from the classes that needs it.
+		
+2. 	See the "strategy" folder
+
+3. 	The abstract factory DP can be used when there are many objects that may be added or changed dynamically
+	at runtime.  These object can be chosen from a family of related objects without specifying the concrete
+	class at design time.
+	
+4. 
