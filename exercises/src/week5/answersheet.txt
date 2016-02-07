@@ -22,4 +22,6 @@
 	bloat) and less modular.  This problem can be addressed by using the builder pattern and moving the
 	construction logic to separate builder classes.
 	
-6. 
+6. 	See "builder" folder
+
+7.

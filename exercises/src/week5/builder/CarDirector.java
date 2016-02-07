@@ -6,5 +6,16 @@ public class CarDirector {
 	public CarDirector(CarBuilder carBuilder) {
 		this.carBuilder = carBuilder;
 	}
-	public void build() {}
+	public Car getCar() {
+		return this.carBuilder.getCar();
+	}
+	public void build() {
+		this.carBuilder.buildBody();
+		this.carBuilder.buildBreaks();
+		this.carBuilder.buildEngine();
+		this.carBuilder.buildFuelType();
+		this.carBuilder.buildPower();
+		this.carBuilder.buildSeats();
+		this.carBuilder.buildWindows();
+	}
 }
