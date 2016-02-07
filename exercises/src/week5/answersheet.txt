@@ -12,4 +12,14 @@
 	at runtime.  These object can be chosen from a family of related objects without specifying the concrete
 	class at design time.
 	
-4. 
+4. 	See "abstractfactory" folder
+
+5. 	The approach is suitable as long as the object under construction is simple and the object construction
+	process is definite and always produces the same representation of the object.  However when the object
+	is complex and the series of steps in the creation process can be implemented in different ways, producing
+	different representations of the object the approach may not be effective.  This is because the different
+	implementations of the construction process are all kept within the object, it becomes bulky (construction
+	bloat) and less modular.  This problem can be addressed by using the builder pattern and moving the
+	construction logic to separate builder classes.
+	
+6. 
