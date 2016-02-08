@@ -1,6 +1,8 @@
 package week5.bridge;
 
-public class GearLocking implements Product {
-
-	public GearLocking(String desc) {}
+public class GearLocking extends Product {
+	
+	public GearLocking(String productDesc) {
+		this.productDesc = productDesc;
+	}
 }

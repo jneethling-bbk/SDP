@@ -1,25 +1,10 @@
 package week5.bridge;
 
-public class Motoren implements Car {
-
-	private Product product;
-	private String desc;
+public class Motoren extends Car {
 	
-	public Motoren(Product product, String desc) {
+	public Motoren(Product product, String carDesc) {
 		this.product = product;
-		this.desc = desc;
+		this.carDesc = carDesc;
 	}
 	
-	@Override
-	public void produceProduct() {
-		// TODO Auto-generated method stub	
-	}
-	@Override
-	public void assemble() {
-		// TODO Auto-generated method stub
-	}
-	@Override
-	public void printDetails() {
-		// TODO Auto-generated method stub
-	}
 }

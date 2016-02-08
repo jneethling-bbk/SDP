@@ -1,5 +1,14 @@
 package week5.bridge;
 
-public interface Product {
-
+abstract class Product {
+	
+	protected String productDesc;
+	
+	public String modify() {
+		return "Modifying product";
+		
+	}
+	public String getDesc() {
+		return productDesc;
+	}	
 }

@@ -1,6 +1,8 @@
 package week5.bridge;
 
-public class CentralLocking implements Product {
-
-	public CentralLocking(String desc) {}
+public class CentralLocking extends Product {
+	
+	public CentralLocking(String productDesc) {
+		this.productDesc = productDesc;
+	}
 }

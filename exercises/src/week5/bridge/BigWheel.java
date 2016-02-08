@@ -1,24 +1,9 @@
 package week5.bridge;
 
-public class BigWheel implements Car {
-
-	private Product product;
-	private String desc;
+public class BigWheel extends Car {
 	
-	public BigWheel(Product product, String desc) {
+	public BigWheel(Product product, String carDesc) {
 		this.product = product;
-		this.desc = desc;
-	}
-	@Override
-	public void produceProduct() {
-		// TODO Auto-generated method stub	
-	}
-	@Override
-	public void assemble() {
-		// TODO Auto-generated method stub
-	}
-	@Override
-	public void printDetails() {
-		// TODO Auto-generated method stub
+		this.carDesc = carDesc;
 	}
 }
