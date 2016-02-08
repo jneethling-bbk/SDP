@@ -29,3 +29,10 @@
 	 	completed in order to finish a task.
 	 	
 8.	See "facade" folder
+
+9.	The Bridge pattern can be used when you want to change both the abstractions and concrete classes
+	independently.
+	
+10. See "bridge" folder
+
+11. 
