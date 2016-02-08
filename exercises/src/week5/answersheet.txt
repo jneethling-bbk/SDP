@@ -24,4 +24,8 @@
 	
 6. 	See "builder" folder
 
-7.
+7.	(a)	A facade pattern provides a simplified interface to a larger body of code.
+	(b)	A facade object can be used to simplify the interface when an action requires many other actions to be
+	 	completed in order to finish a task.
+	 	
+8.	See "facade" folder
