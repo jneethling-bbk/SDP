@@ -35,4 +35,10 @@
 	
 10. See "bridge" folder
 
-11. 
+11. (a) The composite pattern allows you to compose objects into tree structures to represent part-whole
+		hierarchies.
+	(b) The composite pattern can be used when you want to treat both individual objects and compositions of
+		objects uniformly.
+	(c) The 4 participants are component, leaf, composite and client.
+	
+12. See "composite" folder
