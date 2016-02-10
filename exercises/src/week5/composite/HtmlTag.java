@@ -3,7 +3,8 @@ package week5.composite;
 import java.util.List;
 
 public abstract class HtmlTag {
-    public abstract String getTagName();
+   
+	public abstract String getTagName();
 
     public abstract void setStartTag(String tag);
 

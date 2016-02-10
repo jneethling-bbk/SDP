@@ -1,31 +1,39 @@
 package week5.composite;
 
 public class HtmlElement extends HtmlTag {
-
-	public HtmlElement(String tag) {}
+	
+	String tag;
+	String startTag;
+	String endTag;
+	String tagBody;
+	
+	public HtmlElement(String tag) {
+		this.tag = tag;
+	}
 	
 	@Override
 	public String getTagName() {
-		// TODO Auto-generated method stub
-		return null;
+		return tag;
 	}
 
 	@Override
 	public void setStartTag(String tag) {
-		// TODO Auto-generated method stub
-		
+		startTag = tag;
 	}
 
 	@Override
 	public void setEndTag(String tag) {
-		// TODO Auto-generated method stub
-		
+		endTag = tag;
 	}
-
+	
+	@Override
+	public void setTagBody(String tagBody) {
+		this.tagBody = tagBody;
+	}
+	
 	@Override
 	public void generateHtml() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(startTag + tagBody + endTag);
 	}
 
 	
