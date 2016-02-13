@@ -1,4 +1,4 @@
-package part1
+package week4.part1
 
 import week4.atomicscala.AtomicTest._
 
