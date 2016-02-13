@@ -1,11 +1,11 @@
 package week2.spring;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.PropertiesBeanDefinitionReader;
-
-import java.io.FileInputStream;
-import java.util.Properties;
 
 public class HelloWorldSpring {
     
@@ -28,8 +28,7 @@ public class HelloWorldSpring {
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
         
         // create a definition reader
-        PropertiesBeanDefinitionReader rdr = new PropertiesBeanDefinitionReader(
-                factory);
+        PropertiesBeanDefinitionReader rdr = new PropertiesBeanDefinitionReader(factory);
         
         // load the configuration options
         Properties props = new Properties();
