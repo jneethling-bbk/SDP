@@ -2,18 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.beans_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.aop_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.context.support_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.context_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.core_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.expression_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.jdbc_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.jms_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.orm_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.oxm_4.2.3.20151116-RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Brak/.p2/pool/plugins/org.springframework.web_4.2.3.20151116-RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
