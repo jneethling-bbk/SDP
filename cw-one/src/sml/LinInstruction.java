@@ -1,9 +1,9 @@
 package sml;
 
 /**
- * This class ....
+ * This class is a sub-class of the Instruction abstract class
  *
- * @author someone
+ * @author J Neethling
  */
 
 public class LinInstruction extends Instruction {
@@ -16,9 +16,23 @@ public class LinInstruction extends Instruction {
 
     public LinInstruction(String label, int register, int value) {
         super(label, "lin");
-        this.register = register;
-        this.value = value;
+        if (register < 0 || register > 31) {
+        	throw new IllegalArgumentException("Warning: Ignoring instructions that contain invalid registers!");
+        } else {
+        	this.register = register;
+        	this.value = value;
+        }
 
+    }
+    
+    // adding accessor methods to improve testibility
+    
+    public int getRegister() {
+    	return register;
+    }
+    
+    public int getValue() {
+    	return value;
     }
 
     @Override
