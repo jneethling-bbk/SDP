@@ -3,7 +3,7 @@ package sml;
 /**
  * This class is the superclass of the classes for machine instructions
  *
- * @author someone
+ * @author J Neethling
  */
 
 public abstract class Instruction {
@@ -14,8 +14,20 @@ public abstract class Instruction {
     // (op must be an operation of the language)
 
     public Instruction(String l, String op) {
-        this.label = l;
-        this.opcode = op;
+        if (l == null || op == null) {
+        	throw new IllegalArgumentException("The arguments cannot be null");
+        } else if (!op.equals("lin") 
+        		&& !op.equals("add") 
+        		&& !op.equals("sub") 
+        		&& !op.equals("mul") 
+        		&& !op.equals("div")
+        		&& !op.equals("out")
+        		&& !op.equals("bnz")) {
+        	throw new IllegalArgumentException("The operation is not recognized");
+        } else {
+        	this.label = l;
+        	this.opcode = op;
+        }
     }
 
     // = the representation "label: opcode" of this Instruction
