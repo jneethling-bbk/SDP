@@ -7,9 +7,10 @@ import org.junit.Test;
 
 import sml.Instruction;
 import sml.LinInstruction;
+import sml.Machine;
 
 public class LinTest {
-	
+
 // Test the superclass constructor
 	
 	@Test(expected=IllegalArgumentException.class)
@@ -82,11 +83,6 @@ public class LinTest {
 	public final void testToString() {
 		LinInstruction stringTest = new LinInstruction("L1", 31, 500);
 		assertEquals("Incorrect string", "L1: lin register 31 value is 500", stringTest.toString());
-	}
-
-	@Test
-	public final void testExecute() {
-		fail("Not yet implemented"); // TODO
 	}
 
 }
