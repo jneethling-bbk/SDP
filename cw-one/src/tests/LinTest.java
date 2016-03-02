@@ -3,7 +3,6 @@ package tests;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import sml.Instruction;
@@ -11,11 +10,6 @@ import sml.LinInstruction;
 
 public class LinTest {
 	
-	@Before
-	public void setUp() {
-
-	}
-
 // Test the superclass constructor
 	
 	@Test(expected=IllegalArgumentException.class)
@@ -24,7 +18,7 @@ public class LinTest {
 			Instruction superNull = new LinInstruction(null, null);
 		} catch (IllegalArgumentException e) {
 		      String message = "The arguments cannot be null";
-		      assertEquals(message, e.getMessage());
+		      assertEquals("Incorrect message", message, e.getMessage());
 		      throw e;
 		}
 		fail("Expected exception did not throw!");
@@ -36,7 +30,7 @@ public class LinTest {
 			Instruction superWrong = new LinInstruction("L1", "foo");
 		} catch (IllegalArgumentException e) {
 		      String message = "The operation is not recognized";
-		      assertEquals(message, e.getMessage());
+		      assertEquals("Incorrect message", message, e.getMessage());
 		      throw e;
 		}
 		fail("Expected exception did not throw!");
@@ -45,8 +39,8 @@ public class LinTest {
 	@Test
 	public final void testSuperClassConstructorValid() {
 		Instruction superValid = new LinInstruction("L1", "lin");
-		assertEquals("L1", superValid.getLabel());
-		assertEquals("lin", superValid.getOpcode());
+		assertEquals("Incorrect label", "L1", superValid.getLabel());
+		assertEquals("Incorrect opcode", "lin", superValid.getOpcode());
 	}
 	
 // Test the subclass constructor
@@ -57,7 +51,7 @@ public class LinTest {
 			Instruction subNull = new LinInstruction(null, 0, 0);
 		} catch (IllegalArgumentException e) {
 		      String message = "The arguments cannot be null";
-		      assertEquals(message, e.getMessage());
+		      assertEquals("Incorrect message", message, e.getMessage());
 		      throw e;
 		}
 		fail("Expected exception did not throw!");
@@ -69,7 +63,7 @@ public class LinTest {
 			Instruction subInvalid = new LinInstruction("L1", -1, 0);
 		} catch (IllegalArgumentException e) {
 		      String message = "Warning: Ignoring instructions that contain invalid registers!";
-		      assertEquals(message, e.getMessage());
+		      assertEquals("Incorrect message", message, e.getMessage());
 		      throw e;
 		}
 		fail("Expected exception did not throw!");
@@ -78,15 +72,16 @@ public class LinTest {
 	@Test
 	public final void testSubClassConstructorValid() {
 		LinInstruction subValid = new LinInstruction("L1", 0, 0);
-		assertEquals(0, subValid.getRegister());
-		assertEquals(0, subValid.getValue());
+		assertEquals("Incorrect register", 0, subValid.getRegister());
+		assertEquals("Incorrect value", 0, subValid.getValue());
 	}
 	
 // Test the overridden methods
 
 	@Test
 	public final void testToString() {
-		fail("Not yet implemented"); // TODO
+		LinInstruction stringTest = new LinInstruction("L1", 31, 500);
+		assertEquals("Incorrect string", "L1: lin register 31 value is 500", stringTest.toString());
 	}
 
 	@Test
