@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Translator {
 
-    private static final String PATH = "/Users/keith/Courses/sdp/2016/SDP2016/SML/src/";
+    private static final String PATH = "/Users/Brak/git/SDP/cw-one/src/";
     // word + line is the part of the current line that's not yet processed
     // word has no whitespace
     // If word and line are not empty, line begins with whitespace
@@ -78,25 +78,36 @@ public class Translator {
         int r;
         int x;
 
-        if (line.equals(""))
-            return null;
+       try {
+    	   if (line.equals(""))
+    		   return null;
 
-        String ins = scan();
-        switch (ins) {
-            case "add":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new AddInstruction(label, r, s1, s2);
-            case "lin":
-                r = scanInt();
-                s1 = scanInt();
-                return new LinInstruction(label, r, s1);
-        }
+    	   String ins = scan();
+    	   switch (ins) {
+            	case "add":
+            		r = scanInt();
+            		s1 = scanInt();
+            		s2 = scanInt();
+            		return new AddInstruction(label, r, s1, s2);
+            	case "lin":
+            		r = scanInt();
+            		s1 = scanInt();
+            		return new LinInstruction(label, r, s1);
+            	case "sub":
+            		r = scanInt();
+            		s1 = scanInt();
+            		s2 = scanInt();
+            		return new SubtractInstruction(label, r, s1, s2);
+    	   }
 
         // You will have to write code here for the other instructions.
-
+      
+       
+       } catch (IllegalArgumentException e) {
+    	   System.out.println(e.getMessage());
+       }
         return null;
+
     }
 
     /*
