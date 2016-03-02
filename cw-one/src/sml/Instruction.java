@@ -29,6 +29,16 @@ public abstract class Instruction {
         	this.opcode = op;
         }
     }
+    
+    // accessors added to improve testibility
+    
+    public String getLabel() {
+    	return label;
+    }
+    
+    public String getOpcode() {
+    	return opcode;
+    }
 
     // = the representation "label: opcode" of this Instruction
 
