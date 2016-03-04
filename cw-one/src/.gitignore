@@ -1,0 +1,5 @@
+/bin/
+/test1.sml
+/test2.sml
+*.class
+*.classpath
