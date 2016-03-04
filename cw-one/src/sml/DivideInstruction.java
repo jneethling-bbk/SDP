@@ -1,5 +1,11 @@
 package sml;
 
+/**
+ * This class is a sub-class of the Instruction abstract class
+ *
+ * @author J Neethling
+ */
+
 public class DivideInstruction extends Instruction {
 
     private int result;
