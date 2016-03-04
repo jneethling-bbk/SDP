@@ -2,6 +2,8 @@ package sml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -27,7 +29,7 @@ public class Translator {
     // translate the small program in the file into lab (the labels) and
     // prog (the program)
     // return "no errors were detected"
-    public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog) {
+    public boolean readAndTranslate(Labels lab, ArrayList<Instruction> prog)  {
 
         try (Scanner sc = new Scanner(new File(fileName))) {
             // Scanner attached to the file chosen by the user
@@ -76,7 +78,9 @@ public class Translator {
         int s1; // Possible operands of the instruction
         int s2;
         int r;
-        int x;
+        String x;
+        Class cl;
+        Constructor cons;
 
        try {
     	   if (line.equals(""))
@@ -88,36 +92,71 @@ public class Translator {
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		return new AddInstruction(label, r, s1, s2);
+            		cl = Class.forName("sml.AddInstruction");
+            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
+            		return (Instruction) cons.newInstance(label, r, s1, s2);
+            		//return new AddInstruction(label, r, s1, s2);
             	case "lin":
             		r = scanInt();
             		s1 = scanInt();
-            		return new LinInstruction(label, r, s1);
+            		cl = Class.forName("sml.LinInstruction");
+            		cons = cl.getConstructor(String.class, int.class, int.class);
+            		return (Instruction) cons.newInstance(label, r, s1);
+            		//return new LinInstruction(label, r, s1);
             	case "sub":
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		return new SubtractInstruction(label, r, s1, s2);
+            		cl = Class.forName("sml.SubtractInstruction");
+            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
+            		return (Instruction) cons.newInstance(label, r, s1, s2);
+            		//return new SubtractInstruction(label, r, s1, s2);
             	case "mul":
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		return new MultiplyInstruction(label, r, s1, s2);
+            		cl = Class.forName("sml.MultiplyInstruction");
+            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
+            		return (Instruction) cons.newInstance(label, r, s1, s2);
+            		//return new MultiplyInstruction(label, r, s1, s2);
             	case "div":
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		return new DivideInstruction(label, r, s1, s2);
+            		cl = Class.forName("sml.DivideInstruction");
+            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
+            		return (Instruction) cons.newInstance(label, r, s1, s2);
+            		//return new DivideInstruction(label, r, s1, s2);
             	case "out":
             		r = scanInt();
-            		return new OutInstruction(label, r);
+            		cl = Class.forName("sml.OutInstruction");
+            		cons = cl.getConstructor(String.class, int.class);
+            		return (Instruction) cons.newInstance(label, r);
+            		//return new OutInstruction(label, r);
+            	case "bnz":
+            		r = scanInt();
+            		x = scan();
+            		cl = Class.forName("sml.BnzInstruction");
+            		cons = cl.getConstructor(String.class, int.class, String.class);
+            		return (Instruction) cons.newInstance(label, r, x);
+            		//return new BnzInstruction(label, r, x);
     	   }
-
-        // You will have to write code here for the other instructions.
-      
-       
+         
        } catch (IllegalArgumentException e) {
     	   System.out.println(e.getMessage());
+       
+       } catch (ClassNotFoundException e) {
+    	   e.printStackTrace();
+       } catch (NoSuchMethodException e) {
+    	   e.printStackTrace();
+       } catch (SecurityException e) {
+    	   e.printStackTrace();
+       } catch (InstantiationException e) {
+    	   e.printStackTrace();
+       } catch (IllegalAccessException e) {
+    	   e.printStackTrace();
+       } catch (InvocationTargetException e) {
+    	   e.printStackTrace();
        }
         return null;
 
