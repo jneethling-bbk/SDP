@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /*
- * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
+ * The translator of a SML program.
  */
 public class Translator {
 
