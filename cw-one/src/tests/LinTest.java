@@ -1,16 +1,14 @@
 package tests;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import sml.Instruction;
 import sml.LinInstruction;
-import sml.Machine;
 
 public class LinTest {
 
+	
 // Test the superclass constructor
 	
 	@Test(expected=IllegalArgumentException.class)
@@ -84,5 +82,5 @@ public class LinTest {
 		LinInstruction stringTest = new LinInstruction("L1", 31, 500);
 		assertEquals("Incorrect string", "L1: lin register 31 value is 500", stringTest.toString());
 	}
-
+	
 }
