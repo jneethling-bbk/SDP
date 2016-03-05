@@ -24,18 +24,6 @@ public class SubTest {
 		fail("Expected exception did not throw!");
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public final void testSuperClassConstructorWithWrongOp() {
-		try {
-			Instruction superWrong = new SubtractInstruction("L1", "foo");
-		} catch (IllegalArgumentException e) {
-		      String message = "The operation is not recognized";
-		      assertEquals("Incorrect message", message, e.getMessage());
-		      throw e;
-		}
-		fail("Expected exception did not throw!");
-	}
-
 	@Test
 	public final void testSuperClassConstructorValid() {
 		Instruction superValid = new SubtractInstruction("L1", "lin");

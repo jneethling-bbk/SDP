@@ -16,14 +16,6 @@ public abstract class Instruction {
     public Instruction(String l, String op) {
         if (l == null || op == null) {
         	throw new IllegalArgumentException("The arguments cannot be null");
-        } else if (!op.equals("lin") 
-        		&& !op.equals("add") 
-        		&& !op.equals("sub") 
-        		&& !op.equals("mul") 
-        		&& !op.equals("div")
-        		&& !op.equals("out")
-        		&& !op.equals("bnz")) {
-        	throw new IllegalArgumentException("The operation is not recognized");
         } else {
         	this.label = l;
         	this.opcode = op;
