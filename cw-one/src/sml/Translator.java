@@ -3,7 +3,9 @@ package sml;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -71,7 +73,7 @@ public class Translator {
         return true;
     }
 
-    // line should consist of an MML instruction, with its label already
+    // line should consist of an SML instruction, with its label already
     // removed. Translate line into an instruction with label label
     // and return the instruction
     public Instruction getInstruction(String label) {
@@ -79,9 +81,88 @@ public class Translator {
         int s2;
         int r;
         String x;
-        Class cl;
-        Constructor cons;
 
+//-----Reflection code------------------------------------------------ 
+//        String ins = scan();
+//        
+//		// Translate the package name into an absolute path
+//		String name = new String("sml");
+//        if (!name.startsWith("/")) {
+//            name = "/" + name;
+//        }        
+//        name = name.replace('.','/');	
+//				
+//        // Get a File object for the package
+//        URL url = Translator.class.getResource(name);
+//        File directory = new File(url.getFile());
+//	
+//        if (directory.exists()) {
+//        	// Get the list of the files contained in the package and add only the names of
+//        	// subclasses of Instruction to a List
+//        	String [] allfiles = directory.list();
+//        	ArrayList<String> instructionClassNames = new ArrayList<>();
+//        	
+//        	for (int i=0; i<allfiles.length; i++) {
+//        		if (allfiles[i].endsWith(".class") 
+//        				&& !allfiles[i].equals("Translator.class")
+//        				&& !allfiles[i].equals("Registers.class")
+//        				&& !allfiles[i].equals("Machine.class")
+//        				&& !allfiles[i].equals("Labels.class")) {
+//        			String classname = allfiles[i].substring(0,allfiles[i].length()-6);
+//        			instructionClassNames.add(classname);
+//        		}
+//        	}
+//        	      	
+//        	for (int i=0; i<instructionClassNames.size(); i++) { 
+//                             
+//                try {
+//                	
+//             	   if (line.equals(""))
+//            		   return null;
+//                	
+//                	// Try to reference the correct class and constructor objects
+//                	Class cl = Class.forName("sml."+ instructionClassNames.get(i));
+//                    Constructor cons = cl.getConstructor(String.class, String.class);
+//                    Instruction temp = (Instruction) cons.newInstance(label, ins);
+//                    if (temp.getOpcode().equals(ins)) {
+//                    	Field[] fields = cl.getDeclaredFields();
+//                    	for (Field f : fields) {
+//                    		f.setAccessible(true);
+//                    		if (f.getType().equals(int.class)) {
+//                    			f.setInt(temp, scanInt());
+//                    		} else {
+//                    			f.set(temp, scan());
+//                    		}
+//                    	}
+//                    return temp;
+//                    }
+//                    
+//                } catch (ClassNotFoundException cnfex) {
+//                    System.err.println(cnfex);
+//                } catch (InstantiationException iex) {
+//                    // We try to instantiate an interface
+//                    // or an object that does not have a 
+//                    // default constructor
+//                } catch (IllegalAccessException iaex) {
+//                    // The class is not public
+//                } catch (SecurityException e) {
+//					// TODO Auto-generated catch block
+//					//e.printStackTrace();
+//				} catch (NoSuchMethodException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (IllegalArgumentException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (InvocationTargetException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//            }
+//        }
+//        return null;
+//    }
+//--------Original code-------------------------------------------------------
        try {
     	   if (line.equals(""))
     		   return null;
@@ -92,70 +173,39 @@ public class Translator {
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		cl = Class.forName("sml.AddInstruction");
-            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
-            		return (Instruction) cons.newInstance(label, r, s1, s2);
-            		//return new AddInstruction(label, r, s1, s2);
+            		return new AddInstruction(label, r, s1, s2);
             	case "lin":
             		r = scanInt();
             		s1 = scanInt();
-            		cl = Class.forName("sml.LinInstruction");
-            		cons = cl.getConstructor(String.class, int.class, int.class);
-            		return (Instruction) cons.newInstance(label, r, s1);
-            		//return new LinInstruction(label, r, s1);
+            		return new LinInstruction(label, r, s1);
             	case "sub":
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		cl = Class.forName("sml.SubtractInstruction");
-            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
-            		return (Instruction) cons.newInstance(label, r, s1, s2);
-            		//return new SubtractInstruction(label, r, s1, s2);
+            		return new SubtractInstruction(label, r, s1, s2);
             	case "mul":
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		cl = Class.forName("sml.MultiplyInstruction");
-            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
-            		return (Instruction) cons.newInstance(label, r, s1, s2);
-            		//return new MultiplyInstruction(label, r, s1, s2);
+            		return new MultiplyInstruction(label, r, s1, s2);
             	case "div":
             		r = scanInt();
             		s1 = scanInt();
             		s2 = scanInt();
-            		cl = Class.forName("sml.DivideInstruction");
-            		cons = cl.getConstructor(String.class, int.class, int.class, int.class);
-            		return (Instruction) cons.newInstance(label, r, s1, s2);
-            		//return new DivideInstruction(label, r, s1, s2);
+            		return new DivideInstruction(label, r, s1, s2);
             	case "out":
             		r = scanInt();
-            		cl = Class.forName("sml.OutInstruction");
-            		cons = cl.getConstructor(String.class, int.class);
-            		return (Instruction) cons.newInstance(label, r);
-            		//return new OutInstruction(label, r);
+            		return new OutInstruction(label, r);
             	case "bnz":
             		r = scanInt();
             		x = scan();
-            		cl = Class.forName("sml.BnzInstruction");
-            		cons = cl.getConstructor(String.class, int.class, String.class);
-            		return (Instruction) cons.newInstance(label, r, x);
-            		//return new BnzInstruction(label, r, x);
+            		return new BnzInstruction(label, r, x);
     	   }
          
        } catch (IllegalArgumentException e) {
     	   System.out.println(e.getMessage());
        
-       } catch (ClassNotFoundException e) {
-    	   e.printStackTrace();
-       } catch (NoSuchMethodException e) {
-    	   e.printStackTrace();
        } catch (SecurityException e) {
-    	   e.printStackTrace();
-       } catch (InstantiationException e) {
-    	   e.printStackTrace();
-       } catch (IllegalAccessException e) {
-    	   e.printStackTrace();
-       } catch (InvocationTargetException e) {
     	   e.printStackTrace();
        }
         return null;
