@@ -101,13 +101,12 @@ public class Translator {
 //        	// subclasses of Instruction to a List
 //        	String [] allfiles = directory.list();
 //        	ArrayList<String> instructionClassNames = new ArrayList<>();
-//        	
-//        	for (int i=0; i<allfiles.length; i++) {
+//        	        
+//        	for (int i=0; i<allfiles.length; i++) {        		
+//          	Class testClass = allfiles[i];
+//				Class superClass = testClass.getSuperclass();      
 //        		if (allfiles[i].endsWith(".class") 
-//        				&& !allfiles[i].equals("Translator.class")
-//        				&& !allfiles[i].equals("Registers.class")
-//        				&& !allfiles[i].equals("Machine.class")
-//        				&& !allfiles[i].equals("Labels.class")) {
+//        				&& superClass.equals(Instruction.class)) {
 //        			String classname = allfiles[i].substring(0,allfiles[i].length()-6);
 //        			instructionClassNames.add(classname);
 //        		}
