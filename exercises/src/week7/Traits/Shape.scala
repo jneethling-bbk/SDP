@@ -1,5 +1,6 @@
 package week7.Traits
 
+// using sealed traits
 trait Shape {
   def sides: Int
   def perimeter: Double
@@ -13,8 +14,8 @@ case class Circle(radius : Double) extends Shape {
 }
 
 trait RectangularShape extends Shape {
-  def height: Int
-  def width: Int
+  def height: Double
+  def width: Double
   val sides = 4
   val perimeter = (height * 2) + (width * 2)
   val area = height * width
