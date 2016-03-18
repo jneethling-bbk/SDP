@@ -1,0 +1,9 @@
+SCALA EXERCISES
+
+1. 	(a) See "map_reduce" folder
+
+	(b) No it produces an error
+	
+	(c) See "map_reduce" folder - using "for" is more complex and has a greater potential for errors
+	
+2. 
