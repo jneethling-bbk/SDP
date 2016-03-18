@@ -6,4 +6,10 @@ SCALA EXERCISES
 	
 	(c) See "map_reduce" folder - using "for" is more complex and has a greater potential for errors
 	
-2. 
+2. See "map_reduce" folder
+
+3. See "map_reduce" folder
+
+4. See "map_reduce" folder
+
+5.	(a) 
