@@ -2,7 +2,7 @@ package week6.args
 
 import week4.atomicscala.AtomicTest._
 
-object TemsTest extends App {
+object ItemTest extends App {
   val flour = new Item(name="flour", 4)
   flour.cost(grocery=true) is 4
   val sunscreen = new Item(
