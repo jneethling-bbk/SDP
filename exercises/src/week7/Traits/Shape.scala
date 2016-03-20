@@ -1,6 +1,5 @@
 package week7.Traits
 
-// using sealed traits
 trait Shape {
   def sides: Int
   def perimeter: Double
