@@ -14,7 +14,14 @@ SCALA EXERCISES
 
 5. See "Traits" folder
 
+6.
+
 7. See "publishers" folder
 
-8. 
+8. See "List" folder
 
+9.
+
+10.
+
+11.
